@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Log In{% endblock %}
+{% block body_class %}"Vanilla Post discussion "{% endblock %}
+{% block content %}
+
+    <div class="modal-header">
+        <h3 id="loginLabel">Login</h3>
+    </div>
+    <div class="modal-body">
+        <form id="LoginForm" action="{% url forum:login %}" method="post" style="float:left; width: 300px">
+            {% csrf_token %}
+            {% for field in form %}
+                <label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                <span class="help-inline" style="color: #b94a48">
+                {% if field.errors %}
+                    Username or Password is incorrect.
+                {% endif %}
+                </span>
+            {% endfor %}
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,346 @@
+/* this is my new custom theme custom.css 
+-- created by Vanillaskins.com to get me started on customizing Vanilla
+-- all I need to do is add custom css rules to this file to make it all my own.
+-- 27th February 2012
+for more information ask 422 on VanillaForums.com */
+
+/*lesson 1 - lets set the page scroll  y axis so that we dont get page resetting as we move from page to page */
+html {
+    overflow-y: scroll;
+}
+
+/*lesson 2 - change top header from blue to another color */
+
+#Head { background: none repeat scroll 0 0 #212121; }
+
+/*lesson 3 - lets make the forum 980px wide and centre it */
+
+body { width: 980px; margin:10px auto;
+
+/*lesson 4 lets put a border around it so we can see what we are playing with */
+
+	border:1px solid #CCC;
+/*lets give the forum web page bg a color*/
+	background-color:#F5F5F5;
+	/*we could use an image comment out line above and uncomment line below to see this working change path to your site ( use relative URL not absolute like ME*/
+	/*background: url("http://vanillaskins.com/game-forum/themes/game/design/images/bg_newyork.jpg") no-repeat scroll center top #FFFFFF;*/
+	}
+/*lesson 5 lets give the actual forum a background color of white */
+	#Frame {background-color:#fff;}
+a,
+a:link,
+a:visited,
+a:active {
+   color: #212121;
+}
+a:hover {
+text-decoration:underline;
+}
+/*---------------------------------------------------------*/
+div.Tabs div.SubTab {
+padding: 4px 8px;
+background: #fff; 
+}
+ul.DataList div.Meta a.Category {
+   background: #FFF;
+
+}
+ul.DataList li.Mine div.Meta a.Category {
+   background: #FFF;
+}
+div.Message {line-height:1.7em;}
+div.Message a {text-decoration:underline;}
+/*lesson 6 lets style those bloody horrible blue BG's on the home page of the forum */
+	.MessageForm, .Tabs, .Headings {
+	background: none repeat scroll 0 0 #fff;
+	border-bottom:1px solid #CCC;
+	}
+/*lesson 7 lets sort out the background behind Test Discussion one */
+	.Mine {
+	background: none repeat scroll 0 0 #fff;
+	}
+/*lesson 8 change bottom border of Mine discussions */
+	.DataList .Item {
+	border-color: -moz-use-text-color -moz-use-text-color #CCC;
+	}
+/*lesson 9 lets change the style of the category pane in right hand side menu*/
+	.Box {
+	background: none repeat scroll 0 0 #fff;
+	border:1px solid #CCC;
+	box-shadow: 0px 0px 0px #FFF;
+	-moz-box-shadow: 0px 0px 0px #FFF;
+	-webkit-box-shadow: 0px 0px 0px #FFF;  
+	}
+/*lesson 10 lets change the Box h4 color */
+	.Box h4 a{
+	color:#212121;
+	}
+	/*add hover effect for this as it is a link*/
+	.Box h4 a:hover{
+	text-decoration:underline;
+	}
+/*---------------------------------------------------------*/
+
+/*lesson 11 need to sort the UL within the category ( sidebar ) */
+	.PanelInfo .Active {
+	margin-bottom:2px;
+	border-bottom:1px solid #CCC;
+	}
+ul.PanelInfo {
+    border-top: 1px solid #CCC;
+}
+	.PanelInfo li {
+	background: none repeat scroll 0 0 #FFF;
+	border-bottom:1px solid #CCC;
+	}
+	.PanelInfo li a {
+	color:#212121;
+	}
+	.PanelInfo li a:hover {
+	text-decoration:underline;
+	}
+ul.PanelInfo li.Active a {
+    color: #212121;
+ text-decoration: underline;
+}
+/*lesson 12 lets style all discussions and my discussions buttons */
+	/*.TabLink, .TabLink:link, .TabLink:hover, .TabLink:active, .TabLink:visited {
+	border:1px solid #CCC;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	-o-border-radius:4px;
+	background: none repeat scroll 0 0 #efefef;
+	}*/
+/*lesson 13 lets sort the bg colours of tablinks and hovers*/
+	/*.TabLink, .TabLink:visited, .TabLink:active {
+    background: none repeat scroll 0 0 #fff;
+	}
+	.TabLink:hover {
+	background: none repeat scroll 0 0 #F5F5F5;
+	}*/
+/*lesson 14 lets make notification bubbles round and style them  this is very very BASIC you may need to tweak to suit*/
+	.Tabs li a span {
+	background: none repeat scroll 0 0 #717171;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	-o-border-radius:4px;
+	color:#fff;
+	padding:3px 6px;
+	}
+/*lesson 15 lets do the same to the count bubbles */
+	.Count {
+	background: none repeat scroll 0 0 #717171;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	-o-border-radius:4px;
+	}
+/*---------------------------------------------------------*/
+/*lesson 16 Howdy Doody Stranger */
+	 .Box h4 {
+	 color:#212121;
+	 }
+	 .Box p {
+	 color:#212121;
+	 }
+/*the colors above are just so you can see what happens this isnt a tutorial for colorscapes and UI and UX merely a tut */
+/*lesson 17 the popup login doodah*/
+	div.Popup h1, div.Popup h2 {
+    background: none repeat scroll 0 0 #CCC;
+	border-bottom:3px solid #CCC;
+	}
+	
+/*lesson 18 lets change popup border color and style*/
+	.Border {
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.9);/*0.5 sets opacity*/
+    border-radius: 4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	-o-border-radius:4px;
+	}
+/*lets change the pesky X style on the popup */
+	a.Close {color:#fff;}
+	a.Close:hover {color:#212121;}
+
+/*lesson 19 lets change the YELLOW new post to something else*/
+	.DataList .Meta strong {
+    background: none repeat scroll 0 0 #717171;
+	color:#fff;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	-o-border-radius:4px;
+	font-weight:normal;
+	text-transform:uppercase;
+	letter-spacing:1px;
+	}
+/*---------------------------------------------------------*/
+
+/*lets start styling some of the buttons these may need tweaking from Chrome , FF and Internet Explorer*/
+/*lesson 20 Lets start with buttons that aint buttons , these chnages now over ride any tablink changes we have made previously*/
+
+	.TabLink,.TabLink:link,.TabLink:hover,.TabLink:active,.TabLink:visited {
+   margin: 0;
+   border:1px solid #CCC;
+   border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	-o-border-radius:4px;
+   background: #efefef;
+   display: inline;
+   font-weight: normal;
+   color: #212121;
+   text-decoration: none;
+   padding: 5px 10px;
+	line-height: 2.6;
+	white-space: nowrap;
+	text-shadow: 0 1px 0 #FFFFFF;
+	}
+	.TabLink:hover {
+	   background: #F5F5F5;
+	   text-shadow: 0 1px 0 #FFFFFF;
+	}
+	.Active .TabLink {
+	   background: #fff;
+	   color: #212121;
+	   text-shadow: 0 1px 0 #FFFFFF;
+	}
+/*lesson 21 the big button */
+	a.BigButton {
+   text-align: center;
+   display: block;
+   cursor: pointer;
+   margin: 0 0 10px;
+   font-size: 15px;
+   font-weight: bold;
+   padding: 8px 0;
+	background: #F5F5F5;
+	background:-webkit-gradient(linear, center bottom, center top, from(#F5F5F5), to(#F5F5F5));
+	background:-moz-linear-gradient(top, #F5F5F5, #F5F5F5);
+	-pie-background:linear-gradient(top, #F5F5F5, #F5F5F5);
+	background:linear-gradient(top, #F5F5F5, #F5F5F5);
+   color: #212121;
+	text-shadow: 0 1px 0 #fff;
+   border:1px solid #CCC;
+   border-radius: 4px;
+   -moz-border-radius: 4px;
+   -webkit-border-radius: 4px;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;  
+   }
+	a.BigButton:hover {
+   color: #fff;
+   background: #212121;
+   border:1px solid #CCC;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none; 
+	text-shadow:none;
+	}
+	a.BigButton:focus {
+   background: #F5F5F5;
+   border: 1px solid #F5F5F5;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;  
+	}
+/*so what we have done, is get rid of border radii, and box shadows. Set the gradients to have no range */
+
+/*lesson 21 lets change font family*/
+	body {
+   font-family: Tahoma,Arial,"Hiragino Sans GB W3",STHeiti,"Microsoft YaHei"; 
+word-wrap: break-word;
+	}
+.Message br {margin-bottom: 10px;   display: block;}
+/*lesson 22 the Start a new discussion buttons */
+	a.Button,
+	.Button {
+	cursor: pointer;
+	margin: 0;
+	font-size: 11px;
+	padding: 4px;
+	background: #F5F5F5;
+	background:-webkit-gradient(linear, center bottom, center top, from(#F5F5F5), to(#F5F5F5));
+	background:-moz-linear-gradient(top, #F5F5F5, #F5F5F5);
+	-pie-background:linear-gradient(top, #F5F5F5, #F5F5F5);
+	background:linear-gradient(top, #F5F5F5, #F5F5F5);
+	color: #212121;
+	text-shadow: 0 1px 0 #fff;
+	border: 1px solid #CCC !important;
+	border-radius: 4px;
+   -moz-border-radius: 4px;
+   -webkit-border-radius: 4px;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none; 
+	white-space: nowrap;
+	}
+	.Button:hover {
+	   color: #212121;
+	   border:1px solid #CCC;
+	}
+	.Button:focus {
+	   background: #fff;
+	   color:#F5F5F5;
+	}
+/*what we have done is match these to BigButton styling */
+/*lesson 23 lets get these labels tidied up on discussion page ( new post ) and the form itself*/
+	#DiscussionForm label {
+    color: #212121;
+	}
+	#DiscussionForm form {
+   border-radius: 4px;
+   -moz-border-radius: 4px;
+   -webkit-border-radius: 4px;
+   -o-border-radius: 4px;
+   background: #fff none repeat scroll 0 0;
+   border: 1px solid #aaaaaa;
+   margin: 0;
+   padding: 20px;
+}
+/*---------------------------------------------------------*/
+
+/* eww the profile bit looks dreadful, lets sort it out*/
+/*lesson 24 profile customisation*/
+
+/*we can prefix styles in here with the page ID but be careful, however doing this means we can style on the fly across multiple profile pages*/
+
+	#dashboard_profile_index .Box,#dashboard_profile_activity .Box,#dashboard_profile_discussions .Box,#dashboard_profile_comments .Box, #dashboard_profile_notifications .Box{
+	background: none repeat scroll 0 0 #fff;
+	border:1px solid #CCC;
+	color:#212121;
+	}
+	#dashboard_profile_index .PanelInfo li,#dashboard_profile_activity .PanelInfo li,#dashboard_profile_discussions .PanelInfo li,#dashboard_profile_comments .PanelInfo li, #dashboard_profile_notifications .PanelInfo li{
+	background: none repeat scroll 0 0 #fff;
+	}
+	#dashboard_profile_index .PanelInfo,#dashboard_profile_activity .PanelInfo,#dashboard_profile_discussions .PanelInfo,#dashboard_profile_comments .PanelInfo, #dashboard_profile_notifications .PanelInfo{
+	border-bottom: 1px dashed #212121;
+	border-top: 1px solid #fff;
+	}
+
+/*---------------------------------------------------------*/
+
+
+/*change search bar field and button styling */
+#Head form input.InputBox {
+border-radius:4px;
+-moz-border-radius: 4px;
+   -webkit-border-radius: 4px;
+   -o-border-radius: 4px;
+border:1px solid #CCC;
+width:180px;
+}
+
+.Box.About h4 { color:#212121;}
+
+/*general tweaks to css now */
+
+a { color:#212121;}
+.Foot {background:#fff;border-bottom:1px solid #CCC;}
+code, pre {border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px; -o-border-radius: 4px;border:1px solid #CCC;}
+
+/*thumbnail style*/
+.Item .Author img  {padding:4px;background:#fff;}

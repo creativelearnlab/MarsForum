@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}New Post{% endblock %}
+{% block body_class %}"Vanilla Post discussion "{% endblock %}
+{% block content %}
+    <div id="Content">
+        <div id="DiscussionForm">
+            <h1>Create New Post</h1>
+            <form id="Form_Discussion" method="post" action="{% url forum:new_post %}">
+                {% csrf_token %}
+                <div>
+                    <div class="P">
+                        <label for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
+                        {% if form.title.errors %}
+                            <div class="control-group warning">
+                                <div class="TextBoxWrapper">
+                                    {{ form.title }}
+                                </div>
+                                 <span class="help-inline">
+                                {% for error in form.title.errors %}
+                                    {{ error|escape }}
+                                {% endfor %}
+                                </span>
+                            </div>
+                        {% else %}
+                            <div class="TextBoxWrapper">
+                                {{ form.title }}
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="P">
+                        <div class="Category">
+                            <label for="{{ form.category.id_for_label }}">{{ form.category.label }}</label>
+                            {% if form.category.errors %}
+                                <div class="control-group warning">
+                                    <div class="TextBoxWrapper">
+                                        {{ form.category }}
+                                    </div>
+                                 <span class="help-inline">
+                                {% for error in form.category.errors %}
+                                    {{ error|escape }}
+                                {% endfor %}
+                                </span>
+                                </div>
+                            {% else %}
+                                {{ form.category }}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="P">
+                        <div class="TextBoxWrapper">
+                            {% if form.content.errors %}
+                                <div class="control-group warning">
+                                    <div class="TextBoxWrapper">
+                                        {{ form.content }}
+                                    </div>
+                                 <span class="help-inline">
+                                {% for error in form.content.errors %}
+                                    {{ error|escape }}
+                                {% endfor %}
+                                </span>
+                                </div>
+                            {% else %}
+                                {{ form.content }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="Buttons">
+                        <label for="{{ form.tags.id_for_label }}">Tags</label>
+                        {% if form.tags.errors %}
+                            <div class="control-group warning">
+                                <div class="TextBoxWrapper">
+                                    {{ form.tags }}
+                                </div>
+                                 <span class="help-inline">
+                                {% for error in form.tags.errors %}
+                                    {{ error|escape }}
+                                {% endfor %}
+                                </span>
+                            </div>
+                        {% else %}
+                            {{ form.tags }}
+                        {% endif %}
+                        <div style="width: 864px; display: none;" class="token-input-dropdown"></div>
+                        <input type="submit" id="Form_PostDiscussion" name="new_post" value="New Post" class="Button DiscussionButton">
+                        <input type="submit" id="Form_SaveDraft" name="draft" value="Draft" class="Button DraftButton">
+                        <input type="submit" id="Form_Preview" name="preview" value="Preview" class="Button PreviewButton">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    {% endblock %}
+{% block panel %}
+    <div id="Panel"></div>
+
+{% endblock %}

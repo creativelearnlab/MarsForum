@@ -1,0 +1,32 @@
+<div id="Register" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="RegisterLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="RegisterLabel">Register</h3>
+    </div>
+
+    <div class="modal-body">
+
+        <form id="RegisterForm" action="{% url forum:register %}" method="post" style="float:left; width: 500px">
+            {% csrf_token %}
+            {% for field in form %}
+                <label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                <span class="help-inline">
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                {% endif %}
+                </span>
+            {% endfor %}
+
+
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <!--TODO: change submit type, check the pinry example -->
+        <button type="submit" class="btn btn-primary" name="register">Submit</button>
+    </div>
+    </form>
+</div>

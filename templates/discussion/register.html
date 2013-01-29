@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+{% block body_class %}"Vanilla Post discussion "{% endblock %}
+{% block content %}
+
+    <div class="modal-header">
+        <h3 id="RegisterLabel">Register</h3>
+    </div>
+
+    <div class="modal-body">
+
+        <form id="RegisterForm" action="{% url forum:register %}" method="post" style="float:left; width: 500px">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    <span class="help-inline" style="color: #b94a48">
+                    {% for error in field.errors %}
+                        {{ error|escape }}
+                    {% endfor %}
+                    </span>
+                {% endif %}
+            {% endfor %}
+            </div>
+
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <!--TODO: change submit type, check the pinry example -->
+        <button type="submit" class="btn btn-primary" name="register">Submit</button>
+    </div>
+</form>
+{% endblock %}

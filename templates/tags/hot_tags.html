@@ -1,0 +1,10 @@
+<ul class="PanelInfo">
+    {% load taggit_extras %}
+    {% for tag in tags %}
+        <li>
+            <strong>
+                <a href="{% url forum:hot_tag tag.name %}">{{ tag }}</a></strong>
+            <span class="Count">{{ tag.num_times }}</span>
+        </li>
+    {% endfor %}
+</ul>

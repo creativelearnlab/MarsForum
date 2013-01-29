@@ -1,0 +1,13 @@
+.UserSignature {
+   padding: 2px 0px;
+   margin-top: 10px;
+   color: #AAAAAA;
+   max-height: 40px;
+   overflow: hidden;
+}
+.UserSignature img, .UserSignature a, .UserSignature span, .UserSignature strong, .UserSignature embed, .UserSignature hr, .UserSignature button, .UserSignature h1, .UserSignature h2, .UserSignature h3 { display: none;}
+.UserSignature p {color: #AAAAAA !important;font-family: Tahoma,Arial,"Hiragino Sans GB",STHeiti,"Microsoft YaHei" !important;}
+.Comment .Message .UserSignature p {
+   padding: 0px;
+   margin: 2px 0px;
+}

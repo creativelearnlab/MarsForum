@@ -1,0 +1,31 @@
+{% load comments %}
+    {% get_comment_count for post as comment_count %}
+    {% get_comment_list for post as post_comment %}
+    <article id="cmt">
+        {% for comment in post_comment %}
+
+            <li class="Item Comment Alt" id="Comment_132149">
+
+                <div class="Comment">
+                    <div class="Meta">
+                  <span class="Author">
+                      <!-- TODO: add user profile -->
+            <a title="{{ comment.user }}" href="user profile" class="ProfileLink"><img
+                    src="user profile pic" alt="{{ comment.user }}" class="ProfilePhotoMedium"></a><a
+                          href="user profile">{{ comment.user }}</a>         </span>
+         <span class="DateCreated">
+            <a href="{% get_comment_permalink comment "#c%(id)s-by-%(user_name)s"%}" class="Permalink" name="Item_2"
+               rel="nofollow">{{ comment.submit_date|date:"F,j,Y" }}</a>         </span>
+                        <!--TODO: add quick reply-->
+                        <span class="CommentReply"><a href="quick reply">reply</a></span>
+
+                        <div class="CommentInfo">
+                            #{{ forloop.counter }} <span>Posts: {{ post.id }}</span></div>
+                    </div>
+                    <div class="Message">
+                        {{ comment.comment }}
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </article>

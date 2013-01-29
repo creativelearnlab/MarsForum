@@ -1,0 +1,14 @@
+<ul class="PanelInfo PanelMostPopular">
+    {% for post in posts %}
+    <li id="Popular_45">
+        <strong>
+            <a href="{% url forum:post post.id %}">{{ post }}</a>
+            <!-- TODO: add link -->
+        </strong>
+        <br>
+        <!--TODO: add latest comment-->
+        <div class="Meta MetaLeft">commented on: 1 day ago</div>
+        <!-- TODO: add comment stat -->
+    </li>
+    {% endfor %}
+</ul>

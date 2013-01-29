@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-ca" autopagermatchedrules="1"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{% block title %}{% endblock %} - MarsForum</title>
+
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" media="all">
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/signature.css" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/token-input.css" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/custom.css" media="all">
+
+<!--TODO:add favicon-->
+    <link rel="shortcut icon" href="favicon" type="image/x-icon">
+
+    <script src="{{ STATIC_URL }}js/jquery-1.9.0.min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+
+
+
+</head>
+
+<body id="vanilla_discussions_index" class={% block body_class %}{% endblock %}>
+
+<div id="Frame">
+    <div id="Head">
+        <div class="Banner Menu">
+        <!--TODO: add homepage pic-->
+            <h1><a class="Title" href="{% url forum:index %}"><span><img src="home page pic" alt="火星"></span></a></h1>
+            <ul id="Menu">
+
+                <li><a href="{% url forum:index %}" class="">Topic List</a></li>
+
+                {% if user.is_authenticated %}
+                    <!--TODO: link user profile page-->
+                <li><a href="user profile" class="">{{ user.username }}</a></li>
+                <li><a href="{% url forum:logout %}" class="SignOut">SignOut</a></li>
+                {% else %}
+                    <li><a href="#login" data-toggle="modal">Login</a></li>
+                    <li><a href="#Register" data-toggle="modal">Register</a></li>
+
+                      {% load tags %}
+                      {% user_login %}
+
+                     {% user_register %}
+
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+    <div id="Body">
+        {% block content %}{% endblock %}
+        {% block panel %}{% endblock %}
+    </div>
+    <div id="Foot">
+        <div class="foot">© MarsForum | <a href="{% url forum:index %}" target="_blank">Mars</a> | Only for learning purpose </div>
+
+    </div>
+</div>
+
+
+<div class="InformMessages" style=""></div>
+</body>
+</html>

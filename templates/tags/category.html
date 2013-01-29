@@ -1,0 +1,13 @@
+<ul class="PanelInfo PanelCategories">
+    {% for category_entry in category_list %}
+    <li class="Depth1">
+         <span>
+            <strong>
+{#                <a href="{% url forum:category category_entry.id %}"> {{ category_entry.name}} </a>#}
+                <a href="{% url forum:category category_entry.id %}">{{ category_entry.name}}</a>
+            </strong>
+            <span class="Count">{{ category_entry.posts.all|length}}</span>
+         </span>
+    </li>
+    {% endfor %}
+</ul>
