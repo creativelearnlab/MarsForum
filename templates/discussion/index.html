@@ -41,9 +41,9 @@
                     <div class="ItemContent Discussion">
                         <a href="{% url forum:post announcement.id %}" class="Title"><b>{{ announcement.title }}</b></a>
                         <div class="Meta">
-                        <span class="Announcement">Pined</span>
+                        <span class="Announcement">Pinned</span>
                         <!--TODO: link to comment user profile -->
-                        <span class="CommentCount">{{ announ_comment_count }} comments</span>
+                        <span class="CommentCount">{{ announ_comment_count }} comments {{ announcement.num_views }} views</span>
                         <strong>48</strong>
 
                             {% with announcement_comment|last as last_announ_comment %}
@@ -88,7 +88,7 @@
                         <a href="{% url forum:post post.id %}" class="Title">{{ post.title }}</a>
                         <div class="Meta">
                         <!--TODO: link to comment model-->
-                            <span class="CommentCount">{{ post_commnet_count }} comments, {{ post.num_views }} views</span>
+                            <span class="CommentCount">{{ post_comment_count }} comments, {{ post.num_views }} views</span>
 
                             <!--TODO: add new comments since user last login-->
                             <strong>10</strong>
