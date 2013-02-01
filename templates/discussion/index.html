@@ -4,7 +4,7 @@
 {% block body_class %}"Vanilla Discussions index "{% endblock %}
 {% block content%}
 
-        <div id="Content">
+    <div id="Content" xmlns="http://www.w3.org/1999/html">
             <div class="Tabs DiscussionsTabs">
                 <ul>
                     <li class="Active"><a href="{% url forum:index %}" class="TabLink">All Post</a></li>
@@ -12,10 +12,13 @@
                 </ul>
             </div>
 
-
+            {% load comments %}
             <ul class="DataList Discussions">
             {% if announcements %}
                 {% for announcement in announcements %}
+
+                    {% get_comment_list for announcement as announcement_comment %}
+                    {% get_comment_count for announcement as announ_comment_count %}
                     <li class="Item Announcement New">
                     <div class="Options">
                         <div class="ToggleFlyout OptionsMenu">
@@ -39,17 +42,20 @@
                         <a href="{% url forum:post announcement.id %}" class="Title"><b>{{ announcement.title }}</b></a>
                         <div class="Meta">
                         <span class="Announcement">Pined</span>
-                        <!--TODO: link to comment model -->
-                        <span class="CommentCount">48 comments</span>
+                        <!--TODO: link to comment user profile -->
+                        <span class="CommentCount">{{ announ_comment_count }} comments</span>
                         <strong>48</strong>
-                            <span class="LastCommentBy">last comment from: <a href="userprofile">comment user</a></span>
-                            <span class="LastCommentDate"> {{ announcement.publish_at|date:'Y-m-d H:i' }}</span>
+
+                            {% with announcement_comment|last as last_announ_comment %}
+                                <span class="LastCommentBy">last comment from: <a href="userprofile">{{ last_announ_comment.user }}</a></span>
+                                <span class="LastCommentDate"> {{ last_announ_comment.submit_date|date:'Y-m-d H:i' }}</span>
+                            {% endwith %}
+
                             <span><a href="{% url forum:category announcement.category.id %}" class="Category">{{ announcement.category.name }}</a></span>
                             <span class="DiscussionTags">Tags:
                                 {% load taggit_extras %}
                                 {% for tag in announcement.tags.all %}
-                                    <!--TODO: add link to each tag-->
-                                    {{ tag.name }}
+                                    <a href="{% url forum:forum_tags tag.name %}">{{ tag.name }}</a>
                                 {% endfor %}
                             </span>
                         </div>
@@ -60,9 +66,12 @@
 
             {% if posts %}
                 {% for post in posts %}
+
+                    {% get_comment_list for post as post_comment %}
+                    {% get_comment_count for post as post_comment_count %}
                 <li class="Item Alt  New">
                     <div class="Options">
-                        <!--follow activities of a post-->
+                        <!--TODO: follow activities of a post-->
                         <a href="activities" class="Bookmark" title="follow">
                             <span class="Star">
                                 <img src="stared" alt="stared">
@@ -70,6 +79,7 @@
                         </a>
                     </div>
                     <span class="Author">
+                        <!--TODO: add user profile link-->
                         <a title="{{ post.author }}" href="userprofile" class="ProfileLink">
                         <img src="user profile pic" alt="{{ post.author }}" class="ProfilePhotoMedium">
                         </a>
@@ -78,18 +88,23 @@
                         <a href="{% url forum:post post.id %}" class="Title">{{ post.title }}</a>
                         <div class="Meta">
                         <!--TODO: link to comment model-->
-                            <span class="CommentCount">10 comments, {{ post.num_views }} views</span>
+                            <span class="CommentCount">{{ post_commnet_count }} comments, {{ post.num_views }} views</span>
+
+                            <!--TODO: add new comments since user last login-->
                             <strong>10</strong>
-                            <span class="LastCommentBy">last comment from <a href="user profile pic">comment user</a>
-                            </span>
-                            <span class="LastCommentDate">{{ post.publish_at|date:'Y-m-d H:i' }}</span>
+
+                            {% with post_comment|last as last_post_comment %}
+                                <span class="LastCommentBy">last comment from <a href="user profile pic">{{ last_post_comment.user }}</a>
+                                </span>
+                                <span class="LastCommentDate">{{ last_post_comment.submit_date|date:'Y-m-d H:i' }}</span>
+                            {% endwith %}
+
                             <span><a href="{% url forum:category post.category.id %}" class="Category">{{ post.category.name }}</a>
                             </span>
                             <span class="DiscussionTags">Tags:
                             {% load taggit_extras %}
                                 {% for tag in post.tags.all %}
-                                    <!--TODO: add link to each tag-->
-                                    {{ tag.name }}
+                                    <a href="{% url forum:forum_tags tag.name %}">{{ tag.name }}</a>
                                 {% endfor %}
                             </span>
                         </div>

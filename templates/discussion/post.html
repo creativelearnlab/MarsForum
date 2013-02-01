@@ -89,7 +89,7 @@
          <span class="DateCreated">
 
             <a href="{% url forum:post post.id %}#c{{ comment.id }}" class="Permalink" name="Item_2"
-               rel="nofollow">{{ comment.submit_date|date:"F,j,Y" }}</a>         </span>
+               rel="nofollow">{{ comment.submit_date|date:'Y-m-d H:i' }}</a>         </span>
                     <!--TODO: add quick reply -->
                     <span class="CommentReply"><a href="reply link">reply</a></span>
 
@@ -119,7 +119,7 @@
             {{ post_form.security_hash }}
         <div class="Tabs CommentTabs">
             <ul>
-                <li class="Active"><a href="http://talk.jandan.net/discussion/7420#" class="WriteButton TabLink">Comment</a>
+                <li class="Active"><a href="{% url forum:post post.id %}#" class="WriteButton TabLink">Comment</a>
                 </li>
                 <!--TODO: add preview and save to draft-->
                 <li><a href="preview" class="PreviewButton TabLink">Preview</a></li>

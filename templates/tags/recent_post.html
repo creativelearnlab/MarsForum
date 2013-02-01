@@ -3,12 +3,14 @@
     <li id="Popular_45">
         <strong>
             <a href="{% url forum:post post.id %}">{{ post }}</a>
-            <!-- TODO: add link -->
+
         </strong>
+        {% load comments %}
+        {% get_comment_list for post as post_comment %}
         <br>
-        <!--TODO: add latest comment-->
-        <div class="Meta MetaLeft">commented on: 1 day ago</div>
-        <!-- TODO: add comment stat -->
+        {% with post_comment|last as last_comment %}
+        <div class="Meta MetaLeft">commented on: {{ last_comment.submit_date|timesince}} ago</div>
+        {% endwith %}
     </li>
     {% endfor %}
 </ul>

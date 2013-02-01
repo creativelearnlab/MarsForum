@@ -15,7 +15,7 @@
                           href="user profile">{{ comment.user }}</a>         </span>
          <span class="DateCreated">
             <a href="{% get_comment_permalink comment "#c%(id)s-by-%(user_name)s"%}" class="Permalink" name="Item_2"
-               rel="nofollow">{{ comment.submit_date|date:"F,j,Y" }}</a>         </span>
+               rel="nofollow">{{ comment.submit_date|date:"Y-m-d H:i" }}</a>         </span>
                         <!--TODO: add quick reply-->
                         <span class="CommentReply"><a href="quick reply">reply</a></span>
 
