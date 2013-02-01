@@ -1,6 +1,6 @@
 #Introduction#
 
-MarsForum is lightweight forum web app. It has basic functions such as category, tag, and user profile. This forum is designed to be simple and user-friendly. It only provides a quick and easy way for people post threads and discussion.
+MarsForum is a lightweight forum web app. It has basic functions such as category, tag, and user profile. This forum is designed to be simple and user-friendly. It only provides a quick and easy way for people post threads and discussion.
 
 #Example Site#
 
